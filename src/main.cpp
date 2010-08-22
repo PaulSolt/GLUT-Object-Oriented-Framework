@@ -31,22 +31,25 @@ using namespace glutFramework;
  * graphics window that displays a teapot moving side to side.
  * Create a subclass of the GlutFramework and override the virtual methods.
  *
- *	GlutFramework *framework = new MySubclass();
- *	framework->startFramework();
+ *  Teapot Demo:
+ *  ------------
+ *	GlutFramework framework;
+ *	framework.startFramework();
  *
- * @author Paul Solt 8-21-10
+ *  Subclass Example:
+ *  -----------------
+ *  MySubClassOfGlutFramework framework;
+ *  framework.startFramework();
+ * 
+ * @author Paul Solt 8-22-10
  */
 int main(int argc, char *argv[]) {
 	
-	GlutFramework *framework = new GlutFramework(); 
-	
-	framework->setTitle("GLUT Framework: Paul Solt 2010");
-	
-	framework->setLookAt(0.0, 2.0, 10.0, 0.0, 2.0, 0.0, 0.0, 1.0, 0.0);
-
-	framework->startFramework(argc, argv);
-	
-	// **Note** No code below startFramework() will get executed while GLUT window is visible 
+	GlutFramework framework;	
+	framework.setTitle("GLUT Framework: Paul Solt 2010");
+	framework.setLookAt(0.0, 2.0, 10.0, 0.0, 2.0, 0.0, 0.0, 1.0, 0.0);
+	framework.startFramework(argc, argv);
+	// **Note** No code below startFramework() will get executed 
 	
 	return 0;
 }

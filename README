@@ -8,10 +8,17 @@ Overview:
 ---------
 The GLUT Object Oriented Framework is a set of classes that wrap around the GLUT C-style function calls to create an animation framework. It provides a simple object oriented wrapper that has virtual methods to override default behavior. Four lines of code can be used to get a graphics window that draws an animated teapot. 
 
+	Teapot Demo:
+	------------
 	#include "GlutFramework.h"
 	using namespace glutFramework;
-	GlutFramework *framework = new GlutFramework(); 
-	framework->startFramework();
+	GlutFramework framework;
+ 	framework.startFramework();
+ 	
+	Subclass Example:
+   	-----------------
+   	MySubClassOfGlutFramework framework;
+   	framework.startFramework();
 
 Cross-platform Support:
 -----------------------
