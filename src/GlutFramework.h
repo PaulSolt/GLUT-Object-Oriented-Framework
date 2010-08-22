@@ -54,7 +54,7 @@
  *
  * Users should sub-class the framework to define application specific logic.
  *
- * @author Paul Solt 8-21-10
+ * @author Paul Solt 8-22-10
  */
 namespace glutFramework {
 		
