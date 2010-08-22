@@ -82,7 +82,7 @@ namespace glutFramework {
 		
 	public:
 		// Constants
-		const static int FPS = 30;			// Frames per second
+		const static int FPS = 60;			// Frames per second
 		const static int WINDOW_WIDTH = 640;
 		const static int WINDOW_HEIGHT = 480;
 		const static int WINDOW_X_POSITION = 100;
