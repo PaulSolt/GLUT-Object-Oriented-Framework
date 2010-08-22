@@ -11,3 +11,12 @@ Products
 
 # SVN
 .svn
+
+# Visual Studio
+*.opensdf
+*.sdf
+*.suo
+Debug
+Release
+*.user
+ipch
