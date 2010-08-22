@@ -27,7 +27,6 @@
 namespace glutFramework {
 	
 	// Set constants
-	const double GlutFramework::FPS = 60.0;
 	const double GlutFramework::FRAME_TIME = 1.0 / GlutFramework::FPS * 1000.0; // Milliseconds
 
 	
@@ -39,7 +38,7 @@ namespace glutFramework {
 		title = "GlutFramework: Basic";
 		eyeVector = Vector<float>(0.0, 0.0, -10.0); // move the eye position back
 		position = 0.0f;
-		direction = 1 / FRAME_TIME;
+		direction = 1.0 / FRAME_TIME;
 	}
 	
 	GlutFramework::~GlutFramework() {
@@ -239,7 +238,7 @@ namespace glutFramework {
 	// ******************************************************************
 	
 	void GlutFramework::displayWrapper() {
-		instance->displayFramework(); // basic frameworksetup
+		instance->displayFramework(); 
 	}
 	
 	void GlutFramework::runWrapper() {

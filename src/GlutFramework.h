@@ -22,8 +22,8 @@
  * THE SOFTWARE.
  */
 
-#ifndef ANIMATION_FRAMEWORK_H
-#define ANIMATION_FRAMEWORK_H
+#ifndef GLUT_FRAMEWORK_H
+#define GLUT_FRAMEWORK_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -34,13 +34,13 @@
 
 // **Note:** Include GLUT after the standard c++ libraries to prevent linker errors
 
-// Mac and PC compatible
-#if defined(__APPLE__) && defined(__MACH__)
-#include <GLUT/glut.h>
+#ifdef WIN32
+	#include <windows.h> 
+	#include <GL/glut.h> 
 #else
-#include <windows.h> 
-#include <GL/glut.h> 
+	#include <GLUT/glut.h>
 #endif
+
 
 #include "Keyboard.h"
 #include "PerformanceTimer.h"
@@ -82,14 +82,13 @@ namespace glutFramework {
 		
 	public:
 		// Constants
-		const static double FPS;			// Frames per second
-		const static double FRAME_TIME;		// Frame time is in milliseconds
-		
+		const static int FPS = 30;			// Frames per second
 		const static int WINDOW_WIDTH = 640;
 		const static int WINDOW_HEIGHT = 480;
 		const static int WINDOW_X_POSITION = 100;
 		const static int WINDOW_Y_POSITION = 100;
 		
+		const static double FRAME_TIME;		// Frame time is in milliseconds calculated using FPS
 		
 	public:
 		GlutFramework();
