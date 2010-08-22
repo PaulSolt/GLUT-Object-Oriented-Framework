@@ -112,12 +112,32 @@ namespace glutFramework {
 		 */
 		virtual void display(float dTime);
 		
+		/** Called when the window dimensions change.
+		 @param width - the width of the window in pixels
+		 @param height - the height of the window in pixels
+		 */
+		virtual void reshape(int width, int height);
+		
+		/** Called when the mouse buttons are pressed. 
+		 @param button - the mouse buttons
+		 @param state - the state of the buttons
+		 @param x - the x coordinate
+		 @param y - the y coordinate
+		 */
+		virtual void mouseButtonPress(int button, int state, int x, int y);
+		
+		/** Called when the mouse moves on the screen.
+		 @param x - the x coordinate
+		 @param y - the y coordinate
+		 */
+		virtual void mouseMove(int x, int y);
+		
 		/** The keyboard function is called when a standard key is pressed down.
 		 @param key - the key press
 		 @param x - the x coordinate of the mouse
 		 @param y - the y coordinate of the mouse
 		 */
-		virtual void keyboard( unsigned char key, int x, int y );
+		virtual void keyboardDown( unsigned char key, int x, int y );
 		
 		/** The keyboard function is called when a standard key is "unpressed".
 		 @param key - the key press
@@ -133,7 +153,7 @@ namespace glutFramework {
 		 @param x - the x coordinate of the mouse
 		 @param y - the y coordinate of the mouse
 		 */
-		virtual void specialKeyboard( int key, int x, int y );
+		virtual void specialKeyboardDown( int key, int x, int y );
 		
 		/** The keyboard function is called when a special key is "unpressed.
 		 (F1 keys, Home, Inser, Delete, Page Up/Down, End, arrow keys) 
@@ -198,10 +218,13 @@ namespace glutFramework {
 		// ** Static functions which are passed to GLUT function callbacks **
 		// http://www.parashift.com/c++-faq-lite/pointers-to-members.html#faq-33.1
 		static void displayWrapper();
+		static void reshapeWrapper(int width, int height);
 		static void runWrapper();
-		static void keyboardWrapper(unsigned char key, int x, int y);
+		static void mouseButtonPressWrapper(int button, int state, int x, int y);
+		static void mouseMoveWrapper(int x, int y);
+		static void keyboardDownWrapper(unsigned char key, int x, int y);
 		static void keyboardUpWrapper(unsigned char key, int x, int y);
-		static void specialKeyboardWrapper(int key, int x, int y);
+		static void specialKeyboardDownWrapper(int key, int x, int y);
 		static void specialKeyboardUpWrapper(int key, int x, int y);
 	};
 	

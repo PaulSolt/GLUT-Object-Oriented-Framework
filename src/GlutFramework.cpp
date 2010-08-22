@@ -55,10 +55,13 @@ namespace glutFramework {
 		glutCreateWindow(title.c_str()); 
 		
 		// Function callbacks with wrapper functions
+		glutReshapeFunc(reshapeWrapper);
+		glutMouseFunc(mouseButtonPressWrapper);
+		glutMotionFunc(mouseMoveWrapper);
 		glutDisplayFunc(displayWrapper);
-		glutKeyboardFunc(keyboardWrapper);
+		glutKeyboardFunc(keyboardDownWrapper);
 		glutKeyboardUpFunc(keyboardUpWrapper);
-		glutSpecialFunc(specialKeyboardWrapper);
+		glutSpecialFunc(specialKeyboardDownWrapper);
 		glutSpecialUpFunc(specialKeyboardUpWrapper);
 		
 		init();						// Initialize
@@ -88,7 +91,20 @@ namespace glutFramework {
 		position += direction;
 	}
 	
-	void GlutFramework::keyboard( unsigned char key, int x, int y ) 
+	void GlutFramework::reshape(int width, int height) {
+		glViewport(0,0,(GLsizei)width,(GLsizei)height);
+	}
+	
+	void GlutFramework::mouseButtonPress(int button, int state, int x, int y) {
+		printf("Mouse: x: %d y: %d\n", x, y);
+		
+	}
+	
+	void GlutFramework::mouseMove(int x, int y) {
+		printf("Mouse Move: x: %d y: %d\n", x, y);
+	}
+	
+	void GlutFramework::keyboardDown( unsigned char key, int x, int y ) 
 	{
 		// Subclass and override this method
 		printf( "Keyboard: %c = %d\n", key, (int)key );
@@ -106,7 +122,7 @@ namespace glutFramework {
 		keyStates.keyUp( (int)key );
 	}
 	
-	void GlutFramework::specialKeyboard( int key, int x, int y ) 
+	void GlutFramework::specialKeyboardDown( int key, int x, int y ) 
 	{
 		// Subclass and override this method
 		printf( "SpecialKeyboard: %d\n", key );
@@ -241,20 +257,32 @@ namespace glutFramework {
 		instance->displayFramework(); 
 	}
 	
+	void GlutFramework::reshapeWrapper(int width, int height) {
+		instance->reshape(width, height);
+	}
+	
 	void GlutFramework::runWrapper() {
 		instance->run();
 	}
 	
-	void GlutFramework::keyboardWrapper(unsigned char key, int x, int y) {
-		instance->keyboard(key,x,y);
+	void GlutFramework::mouseButtonPressWrapper(int button, int state, int x, int y) {
+		instance->mouseButtonPress(button, state, x, y);
+	}
+	
+	void GlutFramework::mouseMoveWrapper(int x, int y) {
+		instance->mouseMove(x, y);
+	}
+										 
+	void GlutFramework::keyboardDownWrapper(unsigned char key, int x, int y) {
+		instance->keyboardDown(key,x,y);
 	}
 	
 	void GlutFramework::keyboardUpWrapper(unsigned char key, int x, int y) {
 		instance->keyboardUp(key,x,y);
 	}
 	
-	void GlutFramework::specialKeyboardWrapper(int key, int x, int y) {
-		instance->specialKeyboard(key,x,y);
+	void GlutFramework::specialKeyboardDownWrapper(int key, int x, int y) {
+		instance->specialKeyboardDown(key,x,y);
 	}
 	
 	void GlutFramework::specialKeyboardUpWrapper(int key, int x, int y) {
