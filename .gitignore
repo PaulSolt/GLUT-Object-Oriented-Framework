@@ -1,0 +1,13 @@
+# Xcode
+*.pbxuser
+*.mode1v3
+*.perspectivev3
+build
+Build
+Products
+
+# OSX
+.DS_Store
+
+# SVN
+.svn
