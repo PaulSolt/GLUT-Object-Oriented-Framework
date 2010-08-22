@@ -96,18 +96,18 @@ namespace glutFramework {
 	}
 	
 	void GlutFramework::mouseButtonPress(int button, int state, int x, int y) {
-		printf("Mouse: x: %d y: %d\n", x, y);
+		printf("MouseButtonPress: x: %d y: %d\n", x, y);
 		
 	}
 	
 	void GlutFramework::mouseMove(int x, int y) {
-		printf("Mouse Move: x: %d y: %d\n", x, y);
+		printf("MouseMove: x: %d y: %d\n", x, y);
 	}
 	
 	void GlutFramework::keyboardDown( unsigned char key, int x, int y ) 
 	{
 		// Subclass and override this method
-		printf( "Keyboard: %c = %d\n", key, (int)key );
+		printf( "KeyboardDown: %c = %d\n", key, (int)key );
 		if (key==27) { //27 =- ESC key
 			exit (0); 
 		}
@@ -125,7 +125,7 @@ namespace glutFramework {
 	void GlutFramework::specialKeyboardDown( int key, int x, int y ) 
 	{
 		// Subclass and override this method
-		printf( "SpecialKeyboard: %d\n", key );
+		printf( "SpecialKeyboardDown: %d\n", key );
 	}
 	
 	void GlutFramework::specialKeyboardUp( int key, int x, int y ) 
