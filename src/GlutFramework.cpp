@@ -35,7 +35,7 @@ namespace glutFramework {
 	GlutFramework::GlutFramework() { 
 		elapsedTimeInSeconds = 0;
 		frameTimeElapsed = 0;
-		title = "GlutFramework: Basic";
+		title = "GLUT Framework: Paul Solt 2010";
 		eyeVector = Vector<float>(0.0, 0.0, -10.0); // move the eye position back
 		position = 0.0f;
 		direction = 1.0 / FRAME_TIME;

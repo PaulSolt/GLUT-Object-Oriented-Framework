@@ -46,7 +46,6 @@ using namespace glutFramework;
 int main(int argc, char *argv[]) {
 	
 	GlutFramework framework;	
-	framework.setTitle("GLUT Framework: Paul Solt 2010");
 	framework.setLookAt(0.0, 2.0, 10.0, 0.0, 2.0, 0.0, 0.0, 1.0, 0.0);
 	framework.startFramework(argc, argv);
 	// **Note** No code below startFramework() will get executed 
