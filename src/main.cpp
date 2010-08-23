@@ -30,16 +30,6 @@ using namespace glutFramework;
  * A sample program start that uses the base class GlutFramework to create a
  * graphics window that displays a teapot moving side to side.
  * Create a subclass of the GlutFramework and override the virtual methods.
- *
- *  Teapot Demo:
- *  ------------
- *	GlutFramework framework;
- *	framework.startFramework();
- *
- *  Subclass Example:
- *  -----------------
- *  MySubClassOfGlutFramework framework;
- *  framework.startFramework();
  * 
  * @author Paul Solt 8-22-10
  */

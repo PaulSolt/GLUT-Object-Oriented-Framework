@@ -54,6 +54,24 @@
  *
  * Users should sub-class the framework to define application specific logic.
  *
+ *  Teapot Demo:
+ *  ------------
+ *	GlutFramework framework;
+ *	framework.startFramework();
+ *	// main.cpp
+ *	#include "GlutFramework.h"
+ *	using namespace glutFramework;
+ *	int main(int argc, char *argv[]) {
+ *		GlutFramework framework;
+ * 		framework.startFramework(argc, argv);
+ *	        return 0;
+ *	}
+ *
+ *  Subclass Example:
+ *  -----------------
+ *  MySubClassOfGlutFramework framework;
+ *  framework.startFramework();
+ *
  * @author Paul Solt 8-22-10
  */
 namespace glutFramework {
