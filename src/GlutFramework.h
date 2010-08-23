@@ -56,8 +56,6 @@
  *
  *  Teapot Demo:
  *  ------------
- *	GlutFramework framework;
- *	framework.startFramework();
  *	// main.cpp
  *	#include "GlutFramework.h"
  *	using namespace glutFramework;
