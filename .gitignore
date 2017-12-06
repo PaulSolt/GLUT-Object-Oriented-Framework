@@ -20,3 +20,5 @@ Debug
 Release
 *.user
 ipch
+
+build/*

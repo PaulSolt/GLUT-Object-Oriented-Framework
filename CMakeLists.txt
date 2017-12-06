@@ -1,0 +1,15 @@
+PROJECT(GLUT-Object-Oriented-Framework)
+CMAKE_MINIMUM_REQUIRED (VERSION 2.6)
+SET(CMAKE_CXX_FLAGS "-g -Wall -Werror")
+
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
+
+include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS})
+
+file(GLOB_RECURSE SRC src/*.cpp)
+
+ADD_EXECUTABLE(GLUT-Object-Oriented-Framework ${SRC})
+
+TARGET_LINK_LIBRARIES(GLUT-Object-Oriented-Framework ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})

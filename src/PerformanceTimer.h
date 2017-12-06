@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright (c) 2010 Paul Solt, PaulSolt@gmail.com 
+ * Copyright (c) 2010 Paul Solt, PaulSolt@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -9,10 +9,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,10 +25,13 @@
 #ifndef PERFORMANCE_TIMER_H
 #define PERFORMANCE_TIMER_H
 
-#ifdef WIN32			
-	#include <windows.h>	// Windows 
-#else						
-	#include <sys/time.h>	// Mac/Unix
+#ifdef _WIN32
+	#include <windows.h>	// Windows
+#elif __APPLE__
+  #include <sys/time.h>	// Mac/Unix
+#elif __linux
+	#include <sys/time.h>
+	#include <cstddef>		// Linux
 #endif
 
 /** Performance_Timer.h
@@ -46,13 +49,13 @@ namespace glutFramework {
 
 		/** Starts the timer */
 		void start();
-		
+
 		/** Stops the timer */
 		void stop();
 
 		/** Checks to see if the timer is stopped */
 		bool isStopped() const;
-		
+
 		/** Returns the elapsed time since the timer was started, or the time interval
 		 between calls to start() and stop().
 		 */
@@ -62,7 +65,7 @@ namespace glutFramework {
 
 	private:
 		bool _isStopped;
-		
+
 	#ifdef WIN32
 		LARGE_INTEGER _start;
 		LARGE_INTEGER _end;
@@ -71,7 +74,7 @@ namespace glutFramework {
 		timeval _start;
 		timeval _end;
 	#endif
-	
+
 	};
 }	// namespace
 
